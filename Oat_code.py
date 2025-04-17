@@ -3,6 +3,9 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 import zipfile
+import os
+os.system("pip install plotly pandas numpy requests streamlit")
+import plotly.express as px
 # -------------------------------
 # 📥 โหลดข้อมูลจาก .txt
 @st.cache_data
