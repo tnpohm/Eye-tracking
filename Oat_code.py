@@ -10,7 +10,7 @@ import plotly.express as px
 # 📥 โหลดข้อมูลจาก .txt
 @st.cache_data
 def load_data():
-    zip_path = r"C:\Users\Ohm\OneDrive\เดสก์ท็อป\Python_for_INFOVISUAL\Github_upload\combined_with_movie_ids.zip"  # 👉 ใส่ path ที่แท้จริงของไฟล์ zip บนเครื่องคุณ
+    zip_path = "combined_with_movie_ids.zip"  # 👉 ใส่ path ที่แท้จริงของไฟล์ zip บนเครื่องคุณ
 
     with zipfile.ZipFile(zip_path, 'r') as z:
         csv_filename = z.namelist()[0]  # 👉 หรือใส่ชื่อไฟล์ใน zip ตรง ๆ ถ้ารู้ เช่น "data.csv"
