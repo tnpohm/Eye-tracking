@@ -2,12 +2,17 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import numpy as np
-
+import zipfile
 # -------------------------------
 # 📥 โหลดข้อมูลจาก .txt
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\Ohm\OneDrive\เดสก์ท็อป\Python_for_INFOVISUAL\combined_with_movie_ids.csv")  # เปลี่ยนชื่อไฟล์ถ้าไฟล์คุณชื่ออื่น
+    zip_path = r"C:\Users\Ohm\OneDrive\เดสก์ท็อป\Python_for_INFOVISUAL\combined_with_movie_ids.zip"  # 👉 ใส่ path ที่แท้จริงของไฟล์ zip บนเครื่องคุณ
+
+    with zipfile.ZipFile(zip_path, 'r') as z:
+        csv_filename = z.namelist()[0]  # 👉 หรือใส่ชื่อไฟล์ใน zip ตรง ๆ ถ้ารู้ เช่น "data.csv"
+        df = pd.read_csv(z.open(csv_filename))
+
     df = df[df['missing_data'] == 0]
     return df
 
